@@ -67,11 +67,11 @@
         function displayCurrentWeather(data) {
             // We create a string of HTML code with the weather details filled in from our data.
             const weatherHTML = `
-                <h3 class="text-xl font-bold">)</h3>
-                <img src="https://openweathermap.org/img/wn/@2x.png" alt="weather icon" class="mx-auto w-20 h-20">
-                <p class="text-lg">Temperature: </p>
-                <p class="text-lg">Wind: M/S</p>
-                <p class="text-lg">Humidity:%</p>
+                <h3 class="text-xl font-bold">${data.name} (${new Date().toLocaleDateString()})</h3>
+                <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="weather icon" class="mx-auto w-20 h-20">
+                <p class="text-lg">Temperature: ${data.main.temp}°C</p>
+                <p class="text-lg">Wind: ${data.wind.speed} M/S</p>
+                <p class="text-lg">Humidity: ${data.main.humidity}%</p>
             `;
             // We put this new HTML inside the current weather container on our page.
             currentWeatherContainer.innerHTML = weatherHTML;
