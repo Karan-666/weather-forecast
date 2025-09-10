@@ -99,19 +99,18 @@
                     <p class="text-xs text-slate-300">Humidity: ${forecast.main.humidity}%</p>
                 `;
                 // We put our new HTML inside the card.
+                // tested this html as a stand alone code
                 card.innerHTML = cardHTML;
                 // Finally, we add our finished card to the forecast container on the page.
                 forecastCardsContainer.appendChild(card);
             }
         }
 
-        // This part makes our buttons actually do something when they are clicked.
-        // It's like telling the app, "Hey, listen for a click on this button!"
-
+        // Using event listener of clicks
         // This listens for a click on the "Search" button.
         searchButton.addEventListener("click", function() {
             // When the button is clicked, we get the text from the city input box.
-            const city = cityInputElement.value.trim();
+            const city = cityInputElement.value.trim(); // to get good input
             // If the user typed something...
             if (city) {
                 // ...we call our main function to get the weather.
