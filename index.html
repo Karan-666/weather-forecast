@@ -1,20 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <link href="./tailwind4/output.css" rel="stylesheet">
-</head>
-<!-- Body is the main container for weather app
+    <link href="./tailwind4/output.css" rel="stylesheet" />
+  </head>
+
+  <!----------------BODY----------------------->
+
+  <!-- Body is the main container for weather app
     Gave it dark background -->
-    <!-- Use flex to center things here -->
-<body class="bg-slate-900 flex items-center justify-center min-h-screen font-sans">
-<!-- Added border here -->
-<div class="bg-slate-800 border border-slate-700 p-8 rounded-2xl shadow-lg w-11/12 max-w-4xl"></div>
-<!-- Added main title -->
- <h1 class="text-3xl font-bold text-center text-slate-100 mb-6">Weather Dashboard</h1>
-    
+  <!-- Use flex to center things here -->
+  <!-- bg-slate-900: Dark background color.
+flex items-center justify-center: Centers content vertically and horizontally.
+min-h-screen: Ensures it takes the full height of the screen.
+font-sans: Uses a clean sans-serif font. -->
+  <body
+    class="bg-slate-900 flex items-center justify-center min-h-screen font-sans"
+  >
+    <!------------------------ MAIN CONTAINER -------------------------->
+    <!-- Added border here -->
+    <!-- bg-slate-800: Slightly lighter dark background.
+    border border-slate-700: Adds a border around the box.
+    p-8: Padding inside the box.
+    rounded-2xl: Rounded corners.
+    shadow-lg: Gives a shadow for a nice effect.
+    w-11/12 max-w-4xl: Makes it responsive – almost full width on small screens but capped at a max width. -->
+    <!-- This is the whiteboard or frame where everything inside the weather app will go. -->
+    <div
+      class="bg-slate-800 border border-slate-700 p-8 rounded-2xl shadow-lg w-11/12 max-w-4xl"
+    >
+      <!------------------- TITLE OF APP ------------------------------->
+      <!-- Added a big title, centered, white text, some space below. (bottom margin) -->
+      <h1 class="text-3xl font-bold text-center text-slate-100 mb-6">
+        Weather Dashboard
+      </h1>
+      <!------------------- User Input Section ------------------------->
+      <!-- This section holds all the user input fields and buttons. -->
+      <!-- A grid layout:
+        Single column on small screens.
+        Two columns on medium and larger screens.
+        Spacing between items (gap-4), and space below (mb-6). -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <!----------------------- Left Column – City Input ---------------------------------->
+        <!-- A label above the input box.
+         input box is styled dark with light text
+        Placeholder shows example cities.
+        focus:outline-none and focus:ring-2 adds effects when the box is clicked. -->
+        <div class="space-y-2">
+          <p class="font-semibold text-slate-300">Enter a City Name:</p>
+          <input
+            type="text"
+            id="city-input"
+            placeholder="E.g., New York, London"
+            class="w-full p-2 border border-slate-600 rounded-lg bg-slate-700 text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+          />
+        </div>
+        <!--------------------------- Right Column – Buttons ---------------------------->
+        <!-- This is the right side of the input area. -->
+        <!-- Uses a column layout but inside it, buttons are arranged in a row (flex space-x-2).
+        Buttons are styled to look clickable, change color on hover.
+        One button for searching, another for using location. -->
+        <div class="flex flex-col space-y-2">
+          <p class="font-semibold text-gray-700 md:invisible">Actions</p>
+          <div class="flex space-x-2">
+            <button
+              id="search-btn"
+              class="w-full bg-teal-500 text-black p-2 rounded-lg font-semibold hover:bg-teal-600"
+            >
+              Search
+            </button>
+            <button
+              id="location-btn"
+              class="w-full bg-slate-600 text-white p-2 rounded-lg font-semibold hover:bg-slate-500"
+            >
+              Current Location
+            </button>
+          </div>
+        </div>
+      </div>
+      <!----------------------- Error Message Box ---------------------->
+      <!-- This is an empty box where we will show an error message in red if something goes wrong. -->
+      <div
+        id="error-message"
+        class="text-red-500 text-center mb-4 font-semibold"
+      ></div>
+      <!------------------------ Weather Display Section ---------------------->
+      <!-- This is the main area where we will show all the weather information. -->
+      <!-- Creates a grid layout:
+        Single column by default.
+        Three columns on large screens.
+        Adds spacing between items. -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!--------------- Current Weather Box --------------->
+        <!-- This box will show today's weather. It has a bright teal background with black text. -->
+        <!-- Takes one-third of space on large screens.
+        current-weather-details will be filled by JavaScript. -->
+        <div
+          class="lg:col-span-1 bg-teal-500 text-black p-6 rounded-xl shadow-md">
+          <h2 class="text-2xl font-bold mb-4 text-center">Current Weather</h2>
+          <!-- We will put the current weather details here using JavaScript. -->
+          <div id="current-weather-details" class="text-center space-y-2">
+            <p>Enter a city or use your location to see the weather.</p>
+          </div>
+        </div>
+<!------------------- 5-Day Forecast Box --------------->
+        <!-- This box will show the weather for the next 5 days. -->
+        <div class="lg:col-span-2">
+          <h2 class="text-2xl font-bold mb-4 text-slate-100 text-center">
+            5-Day Forecast
+          </h2>
+          <!-- We will put the 5 forecast cards here using JavaScript. -->
+          <div
+            id="forecast-cards"
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 text-center"
+          >
+            <!-- This area starts empty. JavaScript will build and add the cards here. -->
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="./App.js"></script>
-</body>
+  </body>
 </html>
+
+<!-- container nesting logic -->
+
+<!-- <body>  (flex centering everything)
+  <div>  (main container with border, padding)
+    <h1>Title</h1>
+    <div>Input section (grid)</div>
+    <div>Error message</div>
+    <div>Weather section (grid)</div>
+  </div>
+</body> -->
