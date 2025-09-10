@@ -62,3 +62,17 @@
                     forecastCardsContainer.innerHTML = "";
                 });
         }
+
+         // This function builds the HTML to show the current weather.
+        function displayCurrentWeather(data) {
+            // We create a string of HTML code with the weather details filled in from our data.
+            const weatherHTML = `
+                <h3 class="text-xl font-bold">)</h3>
+                <img src="https://openweathermap.org/img/wn/@2x.png" alt="weather icon" class="mx-auto w-20 h-20">
+                <p class="text-lg">Temperature: </p>
+                <p class="text-lg">Wind: M/S</p>
+                <p class="text-lg">Humidity:%</p>
+            `;
+            // We put this new HTML inside the current weather container on our page.
+            currentWeatherContainer.innerHTML = weatherHTML;
+        }
