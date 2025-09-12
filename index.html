@@ -16,9 +16,8 @@
 flex items-center justify-center: Centers content vertically and horizontally.
 min-h-screen: Ensures it takes the full height of the screen.
 font-sans: Uses a clean sans-serif font. -->
-  <body
-    class="bg-slate-900 flex items-center justify-center min-h-screen font-sans"
-  >
+
+  <body class="bg-slate-800 flex items-center justify-center min-h-screen font-sans p-2">
     <!------------------------ MAIN CONTAINER -------------------------->
     <!-- Added border here -->
     <!-- bg-slate-800: Slightly lighter dark background.
@@ -29,11 +28,12 @@ font-sans: Uses a clean sans-serif font. -->
     w-11/12 max-w-4xl: Makes it responsive – almost full width on small screens but capped at a max width. -->
     <!-- This is the whiteboard or frame where everything inside the weather app will go. -->
     <div
-      class="bg-slate-800 border border-slate-700 p-8 rounded-2xl shadow-lg w-11/12 max-w-4xl"
+      class="bg-black border border-[#4EDCD8] p-6 rounded-2xl shadow-lg w-11/12 max-w-4xl"
     >
       <!------------------- TITLE OF APP ------------------------------->
       <!-- Added a big title, centered, white text, some space below. (bottom margin) -->
-      <h1 class="text-3xl font-bold text-center text-slate-100 mb-6">
+      <!-- added gradient text with shades of blue and teal -->
+        <h1 class="text-3xl font-bold text-center mb-6 bg-gradient-to-r from-[#4EDCD8] to-blue-500 bg-clip-text text-transparent">
         Weather Dashboard
       </h1>
       <!------------------- User Input Section ------------------------->
@@ -67,7 +67,7 @@ font-sans: Uses a clean sans-serif font. -->
           <div class="flex space-x-2">
             <button
               id="search-btn"
-              class="w-full bg-teal-500 text-black p-2 rounded-lg font-semibold hover:bg-teal-600"
+              class="w-full bg-[#4EDCD8] text-black p-2 rounded-lg font-semibold hover:bg-teal-600"
             >
               Search
             </button>
@@ -98,7 +98,7 @@ font-sans: Uses a clean sans-serif font. -->
         <!-- Takes one-third of space on large screens.
         current-weather-details will be filled by JavaScript. -->
         <div
-          class="lg:col-span-1 bg-teal-500 text-black p-6 rounded-xl shadow-md">
+          class="lg:col-span-1 bg-[#4EDCD8] text-black p-6 rounded-xl shadow-md">
           <h2 class="text-2xl font-bold mb-4 text-center">Current Weather</h2>
           <!-- We will put the current weather details here using JavaScript. -->
           <div id="current-weather-details" class="text-center space-y-2">
@@ -136,3 +136,5 @@ font-sans: Uses a clean sans-serif font. -->
     <div>Weather section (grid)</div>
   </div>
 </body> -->
+
+
